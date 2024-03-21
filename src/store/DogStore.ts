@@ -32,14 +32,19 @@ export const useDogStore = defineStore({
         setSelectedBreed(selectedBreed: string): void{
             this.selectedBreed = selectedBreed;
         },
-        async fetchDogs(): Promise<void> {
+        async fetchDogs(append: boolean = false): Promise<void> {
             try {
                 this.loading = true;
-                const response = await axios.get('https://dog.ceo/api/breeds/list')
+                const response = await axios.get(`https://dog.ceo/api/breeds/image/random/12`)
                 const dogsData = response.data as DogsApiType;
                 if(dogsData.status === "success"){
-                    console.log(dogsData.message);
-                    this.breeds = dogsData.message;
+                    if(append){
+                        this.dogImgUrls = this.dogImgUrls.concat(dogsData.message);
+                    }else{
+                        this.dogImgUrls = dogsData.message;
+                    }
+                    this.selectedDogImg = "";
+                    this.selectedBreed = "";
                 }
                 this.loading = false;
             } catch (error) {

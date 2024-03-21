@@ -5,6 +5,8 @@ import SidebarButton from './SidebarButton.vue';
 
 const dogStore = useDogStore();
 dogStore.fetchBreeds();
+dogStore.fetchDogs();
+console.log("h1");
 
 const searchWord = ref<string>("");
 
@@ -18,7 +20,7 @@ const setBreedFilter = (breed: string) => {
 <template>
   <div class="container-sidebar">
     <div class="header-sidebar">
-        <img src="../assets/vue.svg" class="logo">
+        <img src="../assets/vue.svg" class="logo" v-on:click="()=>dogStore.fetchDogs(false)">
         <div>
             <input placeholder="Search" type="text" class="search-filter" v-model="searchWord"/>
         </div>
@@ -27,7 +29,7 @@ const setBreedFilter = (breed: string) => {
     <div class="breeds-list">
         <div v-for="breed in dogStore.getBreeds">
             <div class="breed-item" v-if="breed.includes(searchWord)" v-on:click="()=>setBreedFilter(breed)" >
-                <SidebarButton :label="breed" :action="()=>{}" />
+                <SidebarButton :label="breed" :action="()=>{}" :show="true" />
             </div>
         </div>
     </div>
