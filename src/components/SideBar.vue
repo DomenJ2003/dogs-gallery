@@ -41,7 +41,6 @@ const setBreedFilter = (breed: string) => {
     top: 0;
     background-color: #ccc;
     height: 100vh;
-    min-width: 150px;
 }
 
 .header-sidebar{
@@ -66,7 +65,6 @@ const setBreedFilter = (breed: string) => {
 .breeds-list{
     position: relative;
     height: calc(100vh - 115px);
-
     overflow-y: scroll;
 }
 

@@ -1,28 +1,12 @@
 <script setup lang="ts">
+import MainGrid from './components/MainGrid.vue';
 import SideBar from './components/Sidebar.vue';
 </script>
 
 <template>
   <div class="container">
     <SideBar />
-    <div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-      <div style="background-color: blue; height: 100px; width: 100px; "></div>
-      <div style="background-color: red; height: 100px; width: 100px; "></div>
-    </div>
+    <MainGrid />
   </div>
 </template>
 
