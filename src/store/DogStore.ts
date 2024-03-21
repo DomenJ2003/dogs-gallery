@@ -4,25 +4,25 @@ import { DogsApiType, BreedsApiType } from "../types/apiFetchesType";
 
 export const useDogStore = defineStore({
     id: 'dog',
-    state: () => ({
+    state: () => {return {
         dogImgUrls: [] as String[],
         selectedDogImg: "" as String,
         breeds: [] as String[],
         selectedBreed: "" as String,
         loading: false as Boolean
-    }),
+    }},
     getters: {
-        getBreeds(state){
-            return state.breeds;
+        getBreeds(){
+            return this.breeds;
         },
-        getDogImgUrls(state){
-            return state.dogImgUrls;
+        getDogImgUrls(){
+            return this.dogImgUrls;
         },
-        getSelectedBreed(state){
-            return state.selectedBreed;
+        getSelectedBreed(){
+            return this.selectedBreed;
         },
-        getSelectedDogImg(state){
-            return state.selectedBreed;
+        getSelectedDogImg(){
+            return this.selectedBreed;
         }
     },
     actions: {
@@ -36,8 +36,10 @@ export const useDogStore = defineStore({
           try {
             this.loading = true;
             const data: DogsApiType = await axios.get('https://dog.ceo/api/breeds/list')
+            
             if(data.status === "success"){
-                this.imgUrls = data.message 
+                console.log(data.message);
+                this.breeds = data.message;
             }
             this.loading = false;
         }
