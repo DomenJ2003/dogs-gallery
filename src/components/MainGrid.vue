@@ -18,8 +18,10 @@ function loadMoreImages() {
                 <img :src="dogImgUrl" alt="Dog image" class="dogImg">
             </div>
         </div>
-        <div class="load-more-button-container">
-            <SidebarButton label="Load More" :action="loadMoreImages" :show="!dogStore.getSelectedBreed"/>
+        <div class="flex-center">
+            <div class="load-more-button-container">
+                <SidebarButton label="Load More" :action="loadMoreImages" :show="!dogStore.getSelectedBreed"/>
+            </div>
         </div>
     </div>
 </template>
@@ -40,6 +42,7 @@ function loadMoreImages() {
 }
 
 .load-more-button-container{
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
