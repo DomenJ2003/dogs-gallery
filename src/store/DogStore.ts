@@ -5,34 +5,34 @@ import { DogsApiType } from "../types/apiFetchesType";
 export const useDogStore = defineStore({
     id: 'dog',
     state: () => ({
-        dogImgUrls: [] as String[],
-        selectedDogImg: "" as String,
-        breeds: [] as String[],
-        selectedBreed: "" as String,
+        dogImgUrls: [] as string[],
+        selectedDogImg: "" as string,
+        breeds: [] as string[],
+        selectedBreed: "" as string,
         loading: false as Boolean
     }),
     getters: {
-        getBreeds(){
+        getBreeds() : string[]{
             return this.breeds;
         },
-        getDogImgUrls(){
+        getDogImgUrls(): string[] {
             return this.dogImgUrls;
         },
-        getSelectedBreed(){
+        getSelectedBreed(): string{
             return this.selectedBreed;
         },
-        getSelectedDogImg(){
+        getSelectedDogImg(): string{
             return this.selectedDogImg;
         }
     },
     actions: {
-        setSelectedImg(dogImg: String){
+        setSelectedImg(dogImg: string): void{
             this.selectedDogImg = dogImg;
         },
-        setSelectedBreed(selectedBreed: String){
+        setSelectedBreed(selectedBreed: string): void{
             this.selectedBreed = selectedBreed;
         },
-        async fetchDogs() {
+        async fetchDogs(): Promise<void> {
             try {
                 this.loading = true;
                 const response = await axios.get('https://dog.ceo/api/breeds/list')
@@ -47,7 +47,7 @@ export const useDogStore = defineStore({
                 this.loading = false;
             }
         },
-        async fetchDogsByBreed() {
+        async fetchDogsByBreed(): Promise<void> {
             try {
                 this.loading = true;
                 const response = await axios.get(`https://dog.ceo/api/breed/${this.selectedBreed}/images`)
@@ -62,7 +62,7 @@ export const useDogStore = defineStore({
                 this.loading = false;
             }
         },
-        async fetchBreeds() {
+        async fetchBreeds(): Promise<void> {
             try {
                 this.loading = true;
                 const response = await axios.get('https://dog.ceo/api/breeds/list')

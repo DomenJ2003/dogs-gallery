@@ -1,30 +1,33 @@
 <script setup lang="ts">
-
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useDogStore } from '../store/DogStore';
+import SidebarButton from './SidebarButton.vue';
 
 const dogStore = useDogStore();
 dogStore.fetchBreeds();
 
 const searchWord = ref<string>("");
-watch(searchWord, () => console.log(searchWord))
 
+const setBreedFilter = (breed: string) => {
+    dogStore.setSelectedBreed(breed);
+    dogStore.fetchDogsByBreed();
+}
 
 </script>
 
 <template>
-  <div class="container-sidebar" style="background-color: green;">
-    <div class="header-sidebar" style="background-color: Blue;">
+  <div class="container-sidebar">
+    <div class="header-sidebar">
         <img src="../assets/vue.svg" class="logo">
         <div>
-            <input type="text" class="search-filter" v-model="searchWord"/>
+            <input placeholder="Search" type="text" class="search-filter" v-model="searchWord"/>
         </div>
     </div>
 
     <div class="breeds-list">
         <div v-for="breed in dogStore.getBreeds">
-            <div class="breed-item" v-if="breed.includes(searchWord)">
-                {{ breed }}
+            <div class="breed-item" v-if="breed.includes(searchWord)" v-on:click="()=>setBreedFilter(breed)" >
+                <SidebarButton :label="breed" :action="()=>{}" />
             </div>
         </div>
     </div>
@@ -36,7 +39,7 @@ watch(searchWord, () => console.log(searchWord))
 .container-sidebar{
     position: sticky;
     top: 0;
-    left: 0;
+    background-color: #ccc;
     height: 100vh;
     min-width: 150px;
 }

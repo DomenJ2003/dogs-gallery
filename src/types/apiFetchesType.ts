@@ -1,9 +1,9 @@
 export type BreedsApiType = {
-    message: String[],
+    message: string[],
     status: "success" | "error"
 }
 
 export type DogsApiType = {
-    message: String[],
+    message: string[],
     status: "success" | "error"
 }
