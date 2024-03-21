@@ -1,17 +1,15 @@
 <script setup lang="ts">
 
+import { ref, watch } from 'vue';
 import { useDogStore } from '../store/DogStore';
 
-    const dogStore = useDogStore();
-    dogStore.fetchBreeds();
+const dogStore = useDogStore();
+dogStore.fetchBreeds();
 
-    // const breeds = computed(()=> dogStore.getBreeds())
-    
-// import { ref } from 'vue'
+const searchWord = ref<string>("");
+watch(searchWord, () => console.log(searchWord))
 
-// defineProps<{ msg: string }>()
 
-// const count = ref(0)
 </script>
 
 <template>
@@ -19,14 +17,17 @@ import { useDogStore } from '../store/DogStore';
     <div class="header-sidebar" style="background-color: Blue;">
         <img src="../assets/vue.svg" class="logo">
         <div>
-            <input type="text" class="search-filter"/>
+            <input type="text" class="search-filter" v-model="searchWord"/>
         </div>
     </div>
-    <ol class="breeds">
-        <li v-for="breed in dogStore.getBreeds">
-            {{ breed }}
-        </li>
-    </ol>
+
+    <div class="breeds-list">
+        <div v-for="breed in dogStore.getBreeds">
+            <div class="breed-item" v-if="breed.includes(searchWord)">
+                {{ breed }}
+            </div>
+        </div>
+    </div>
   </div>
     
 </template>
@@ -58,5 +59,13 @@ import { useDogStore } from '../store/DogStore';
     border-radius: 4px;
     font-size: large;
 }
+
+.breeds-list{
+    position: relative;
+    height: calc(100vh - 115px);
+
+    overflow-y: scroll;
+}
+
 
 </style>
