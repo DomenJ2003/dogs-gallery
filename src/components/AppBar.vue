@@ -37,6 +37,7 @@ const dogStore = useDogStore();
 .link{
     padding: 5px;
     color: var(--color-white);
+    text-decoration: none;
 }
 
 .title{
