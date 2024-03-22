@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDogStore } from "../store/DogStore";
 import AppBar from "./AppBar.vue";
-import SidebarButton from "./SidebarButton.vue";
+import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
 
 const dogStore = useDogStore();
@@ -43,13 +43,13 @@ const toggleFavorite = (dogImgUrl: string) => {
           class="dogImg"
         />
         <div class="img-bar">
-          <SidebarButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'" :show="true" :action="()=>toggleFavorite(dogImgUrl)" />
+          <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'" :show="true" :action="()=>toggleFavorite(dogImgUrl)" />
         </div>
       </div>
     </div>
     <div class="flex-center">
       <div class="load-more-button-container">
-        <SidebarButton
+        <CustomButton
           label="Load More"
           :action="loadMoreImages"
           :show="!dogStore.getSelectedBreed"

@@ -5,7 +5,7 @@ import { useDogStore } from '../store/DogStore';
 const dogStore = useDogStore();
 </script>
 
-<template>  
+<template>
     <div class="app-bar">
         <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
         <h1 class="title" v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
@@ -29,19 +29,18 @@ const dogStore = useDogStore();
     justify-content: space-between;
 }
 
-.links{
+.links {
     margin-right: 50px;
     gap: 30px;
 }
 
-.link{
+.link {
     padding: 5px;
     color: var(--color-white);
     text-decoration: none;
 }
 
-.title{
+.title {
     color: var(--color-white);
 }
-
 </style>

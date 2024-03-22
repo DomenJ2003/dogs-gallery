@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useDogStore } from '../store/DogStore';
-import SidebarButton from './SidebarButton.vue';
+import CustomButton from './CustomButton.vue';
 
 const dogStore = useDogStore();
 dogStore.fetchBreeds();
@@ -28,7 +28,7 @@ const setBreedFilter = (breed: string) => {
     <div class="breeds-list">
         <div v-for="breed in dogStore.getBreeds">
             <div class="breed-item" v-if="breed.includes(searchWord)" v-on:click="()=>setBreedFilter(breed)" >
-                <SidebarButton :label="breed" :action="()=>{}" :show="true" />
+                <CustomButton :label="breed" :action="()=>{}" :show="true" />
             </div>
         </div>
     </div>
