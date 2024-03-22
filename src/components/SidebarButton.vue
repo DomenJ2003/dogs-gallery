@@ -15,8 +15,7 @@ defineProps<{ label: string, action: ()=>{}, show: boolean }>()
   padding: 6px 14px;
   margin: 3px;
   border-radius: 6px;
-  color: #3D3D3D;
-  background: #fff;
+  background: var(--color-primary);
   border: none;
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
   user-select: none;

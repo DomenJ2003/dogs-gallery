@@ -60,6 +60,7 @@ const setBreedFilter = (breed: string) => {
     display: inline-block;
     border-radius: 6px;
     font-size: large;
+    background-color: var(--color-primary);
 }
 
 .breeds-list{

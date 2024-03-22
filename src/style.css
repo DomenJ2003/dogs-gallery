@@ -1,10 +1,8 @@
-:root{
-  --color-primary: #555;
+:root {
+  --color-primary: #f0f3ff;
   --color-secondary: #265073;
-  --color-background: #F1FADA;
   --color-white: #fff;
 }
-
 
 * {
   margin: 0;
@@ -13,21 +11,19 @@
   font-family: "Inter", sans-serif;
 }
 
-
-.flex{
+.flex {
   display: flex;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.flex-center-col{
+.flex-center-col {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-

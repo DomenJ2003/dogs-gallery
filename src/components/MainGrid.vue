@@ -28,7 +28,7 @@ const toggleFavorite = (dogImgUrl: string) => {
 </script>
 
 <template>
-  <div>
+  <div class="grid-container">
     <AppBar />
     <div class="grid">
       <div
@@ -60,13 +60,16 @@ const toggleFavorite = (dogImgUrl: string) => {
 </template>
 
 <style scoped>
+
+.grid-container{
+  width: 100%;
+}
 .grid {
-  width: calc(100vw - 250px);
   display: grid;
   grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;
-  margin: 20px 10px;
-  /* background-color: var(--color-background); */
+  padding: 20px 10px;
+  /* background-color: var(--color-primary); */
 }
 
 .img-card{
@@ -95,6 +98,7 @@ const toggleFavorite = (dogImgUrl: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5vh;
 }
 
 .img-bar{

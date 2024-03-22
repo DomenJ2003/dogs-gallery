@@ -7,8 +7,8 @@ const dogStore = useDogStore();
 
 <template>  
     <div class="app-bar">
-        <h1 v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
-        <h1 v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
+        <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
+        <h1 class="title" v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
         <div class="links">
             <a class="link" href="/">Home</a>
             <a class="link" href="/favorites">Favorites</a>
@@ -36,5 +36,11 @@ const dogStore = useDogStore();
 
 .link{
     padding: 5px;
+    color: var(--color-white);
 }
+
+.title{
+    color: var(--color-white);
+}
+
 </style>
