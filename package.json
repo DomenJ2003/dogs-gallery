@@ -6,18 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest --dom"
   },
   "dependencies": {
     "@rushstack/eslint-patch": "^1.7.2",
     "@vue/eslint-config-typescript": "^13.0.0",
     "axios": "^1.6.8",
+    "happy-dom": "^6.0.4",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/test-utils": "^2.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
     "vitest": "^1.4.0",

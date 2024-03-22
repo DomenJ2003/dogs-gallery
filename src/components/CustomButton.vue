@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ label: string, action: ()=>{}, show: boolean }>()
+defineProps<{ label: string, action: () => void, show: boolean }>() // show
 </script>
 
 <template>
