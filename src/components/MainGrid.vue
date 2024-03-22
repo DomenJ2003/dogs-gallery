@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDogStore } from "../store/DogStore";
+import { useDogStore } from "../store/dogStore";
 import AppBar from "./AppBar.vue";
 import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
@@ -7,8 +7,8 @@ import { ref } from 'vue';
 const dogStore = useDogStore();
 const favoritedImgsJson: string | null = localStorage.getItem("favoritedImgs");
 const favoritedImgs = ref<string[]>([]);
-if(favoritedImgsJson){
-    favoritedImgs.value = JSON.parse(favoritedImgsJson);
+if (favoritedImgsJson) {
+  favoritedImgs.value = JSON.parse(favoritedImgsJson);
 }
 
 
@@ -17,13 +17,13 @@ const loadMoreImages = () => {
 };
 
 const toggleFavorite = (dogImgUrl: string) => {
-    if (favoritedImgs.value.includes(dogImgUrl)){
-        favoritedImgs.value = favoritedImgs.value.filter(favoritedImg => favoritedImg !==dogImgUrl);
-    }else{
-        favoritedImgs.value.push(dogImgUrl);
-    }
-    localStorage.setItem("favoritedImgs", JSON.stringify(favoritedImgs.value));
-    console.log(localStorage.getItem("favoritedImgs"));
+  if (favoritedImgs.value.includes(dogImgUrl)) {
+    favoritedImgs.value = favoritedImgs.value.filter(favoritedImg => favoritedImg !== dogImgUrl);
+  } else {
+    favoritedImgs.value.push(dogImgUrl);
+  }
+  localStorage.setItem("favoritedImgs", JSON.stringify(favoritedImgs.value));
+  console.log(localStorage.getItem("favoritedImgs"));
 };
 </script>
 
@@ -31,39 +31,27 @@ const toggleFavorite = (dogImgUrl: string) => {
   <div class="grid-container">
     <AppBar />
     <div class="grid">
-      <div
-        v-for="dogImgUrl in dogStore.getDogImgUrls"
-        :key="dogImgUrl"
-        class="img-container flex-center-col"
-      >
-        <img
-          @click="() => console.log(dogImgUrl)"
-          :src="dogImgUrl"
-          alt="Dog image"
-          class="dogImg"
-        />
+      <div v-for="dogImgUrl in dogStore.getDogImgUrls" :key="dogImgUrl" class="img-container flex-center-col">
+        <img @click="() => console.log(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />
         <div class="img-bar">
-          <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'" :show="true" :action="()=>toggleFavorite(dogImgUrl)" />
+          <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'"
+            :show="true" :action="() => toggleFavorite(dogImgUrl)" />
         </div>
       </div>
     </div>
     <div class="flex-center">
       <div class="load-more-button-container">
-        <CustomButton
-          label="Load More"
-          :action="loadMoreImages"
-          :show="!dogStore.getSelectedBreed"
-        />
+        <CustomButton label="Load More" :action="loadMoreImages" :show="!dogStore.getSelectedBreed" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
-.grid-container{
+.grid-container {
   width: 100%;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 280px);
@@ -72,7 +60,7 @@ const toggleFavorite = (dogImgUrl: string) => {
   /* background-color: var(--color-primary); */
 }
 
-.img-card{
+.img-card {
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -101,7 +89,7 @@ const toggleFavorite = (dogImgUrl: string) => {
   margin-bottom: 5vh;
 }
 
-.img-bar{
+.img-bar {
   margin: 10px 0;
 }
 </style>

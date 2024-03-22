@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDogStore } from '../store/DogStore';
+import { useDogStore } from '../store/dogStore';
 
 
 const dogStore = useDogStore();

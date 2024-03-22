@@ -2,14 +2,22 @@ import axios from "axios";
 import { defineStore } from "pinia";
 import { DogsApiType } from "../types/apiFetchesType";
 
+type UseDogStore = {
+    dogImgUrls: string[],
+    selectedDogImg: string,
+    breeds: string[],
+    selectedBreed: string,
+    loading: boolean
+}
+
 export const useDogStore = defineStore({
-    id: 'dog',
-    state: () => ({
-        dogImgUrls: [] as string[],
-        selectedDogImg: "" as string,
-        breeds: [] as string[],
-        selectedBreed: "" as string,
-        loading: false as Boolean
+    id: 'dogStore',
+    state: (): UseDogStore => ({
+        dogImgUrls: [],
+        selectedDogImg: "",
+        breeds: [],
+        selectedBreed: "",
+        loading: false
     }),
     getters: {
         getBreeds() : string[]{
