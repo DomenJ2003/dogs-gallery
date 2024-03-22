@@ -22,6 +22,7 @@ defineProps<{ label: string, action: ()=>{}, show: boolean }>()
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  cursor: pointer;
 }
 
 .button:focus {

@@ -22,7 +22,7 @@ const dogStore = useDogStore();
     top: 0;
     width: 100%;
     height: 80px;
-    background-color: #ccc;
+    background-color: var(--color-secondary);
     color: #888;
     display: flex;
     align-items: center;

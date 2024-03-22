@@ -61,22 +61,30 @@ const toggleFavorite = (dogImgUrl: string) => {
 
 <style scoped>
 .grid {
-  width: calc(100vw - 220px);
+  width: calc(100vw - 250px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 300px));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 280px);
+  gap: 20px;
   margin: 20px 10px;
+  /* background-color: var(--color-background); */
+}
+
+.img-card{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .img-container {
-  background-color: #888;
-  border: 1px solid black;
-  border-radius: 10px;
+  background-color: var(--color-white);
+  border-radius: 20px;
   padding-top: 10px;
+  box-shadow: 7px 7px 13px 0px rgba(100, 100, 100, 0.2);
 }
 
 .dogImg {
-  width: 280px;
+  width: 90%;
   height: 280px;
   object-fit: cover;
   border-radius: 10px;
@@ -87,5 +95,9 @@ const toggleFavorite = (dogImgUrl: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.img-bar{
+  margin: 10px 0;
 }
 </style>

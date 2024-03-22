@@ -6,7 +6,6 @@ import SidebarButton from './SidebarButton.vue';
 const dogStore = useDogStore();
 dogStore.fetchBreeds();
 dogStore.fetchDogs();
-console.log("h1");
 
 const searchWord = ref<string>("");
 
@@ -41,7 +40,7 @@ const setBreedFilter = (breed: string) => {
 .container-sidebar{
     position: sticky;
     top: 0;
-    background-color: #ccc;
+    background-color: var(--color-secondary);
     height: 100vh;
 }
 
@@ -56,11 +55,10 @@ const setBreedFilter = (breed: string) => {
 }
 
 .search-filter{
-    padding: 2px;
+    padding: 4px 8px;
     margin: 4px;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: large;
 }
 
