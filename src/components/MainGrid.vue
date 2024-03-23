@@ -33,6 +33,8 @@ const toggleFavorite = (dogImgUrl: string) => {
 const router = useRouter();
 
 const openDetails = (dogImgUrl: string) => {
+  const index = dogStore.dogImgUrls.indexOf(dogImgUrl);
+  dogStore.setDogImgIndex(index);
   dogStore.setSelectedImg(dogImgUrl);
   router.push("/details")
 

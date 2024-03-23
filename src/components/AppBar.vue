@@ -13,9 +13,9 @@ const goHome = () => {
     <div class="app-bar">
         <div class="flex title-logo">
             <router-link to="/">
-                <img src="../assets/vue.svg" class="logo" @click="goHome">
+                <img src="../assets/icon-white.svg" class="logo" @click="goHome">
             </router-link>
-            <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
+            <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Gallery</h1>
             <h1 class="title" v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
         </div>
 

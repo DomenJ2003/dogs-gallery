@@ -22,7 +22,7 @@ describe('AppBar.vue', () => {
       }
     });
 
-    expect(wrapper.find('.title').text()).toBe('Welcome to Dog Libery');
+    expect(wrapper.find('.title').text()).toBe('Welcome to Dog Gallery');
   });
 
   it('renders selected breed in uppercase when a breed is selected', async () => {

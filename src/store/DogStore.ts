@@ -40,6 +40,9 @@ export const useDogStore = defineStore({
         },
     },
     actions: {
+        setDogImgIndex(index: number){
+            this.selectedDogImgIndex = index;
+        },
         incrementIndex(){
             const lengthOfDogImgs  = this.dogImgUrls.length;
             if(lengthOfDogImgs == 0){
