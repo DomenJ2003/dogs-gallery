@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { expect, it, describe, vitest } from 'vitest'
+import { expect, it, describe } from 'vitest'
 import { createPinia } from 'pinia';
 import { useDogStore } from '../../store/dogStore';
 import ErrorPage from '../ErrorPage.vue'; 

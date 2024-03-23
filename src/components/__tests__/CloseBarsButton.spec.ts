@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils'
 import { expect, it, describe, vitest } from 'vitest'
-
 import CloseBarsButton from '../OpenBarsButton.vue'
 
 describe('CloseBarsButton', ()=>{

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { expect, it, describe } from 'vitest';
-import AppBar from '../AppBar.vue'; 
 import { createPinia } from 'pinia';
+import AppBar from '../AppBar.vue';
 import { useDogStore } from '../../store/dogStore';
 
 

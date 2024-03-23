@@ -10,8 +10,6 @@ const searchWord = ref<string>("");
 const openSideBar = ref<boolean>(window.matchMedia("(min-width: 520px)").matches);
 
 dogStore.fetchBreeds();
-dogStore.fetchDogs();
-
 
 const setBreedFilter = (breed: string) => {
     dogStore.setSelectedBreed(breed);

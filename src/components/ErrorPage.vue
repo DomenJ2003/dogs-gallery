@@ -34,11 +34,7 @@ const dogStore = useDogStore();
   border-radius: 20px;
 }
 
-.error-title {}
-
 .error-body {
   padding: 10px;
 }
-
-.error-button {}
 </style>

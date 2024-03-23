@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest';
 import { mount } from '@vue/test-utils';
-import FavoritesPage from '../FavoritesPage.vue'; // Assuming your component file is named FavoritesPage.vue
 import { createPinia } from 'pinia';
+import FavoritesPage from '../FavoritesPage.vue';
 import { useDogStore } from '../../store/dogStore';
 
 

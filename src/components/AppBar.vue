@@ -3,21 +3,27 @@ import { useDogStore } from '../store/dogStore';
 
 
 const dogStore = useDogStore();
+
+const goHome = () => {
+    dogStore.fetchDogs();
+}
 </script>
 
 <template>
     <div class="app-bar">
         <div class="flex title-logo">
-            <RouterLink to="/">
-                <img src="../assets/vue.svg" class="logo">
-            </RouterLink>
+            <router-link to="/">
+                <img src="../assets/vue.svg" class="logo" @click="goHome">
+            </router-link>
             <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
             <h1 class="title" v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
         </div>
 
         <nav class="links">
-            <RouterLink class="link" to="/">Home</RouterLink>
-            <RouterLink class="link" to="/favorites">Favorites</RouterLink>
+            <router-link class="link" to="/">
+                <span @click="goHome">Home</span>
+            </router-link>
+            <router-link class="link" to="/favorites">Favorites</router-link>
         </nav>
     </div>
 </template>

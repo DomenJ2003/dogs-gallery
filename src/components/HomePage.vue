@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { useDogStore } from '../store/dogStore';
 import MainGrid from './MainGrid.vue';
 import SideBar from './Sidebar.vue';
+
+const dogStore = useDogStore();
+dogStore.fetchDogs();
 </script>
 
 <template>
