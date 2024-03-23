@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDogStore } from '../store/dogStore';
-
+import CustomButton from './CustomButton.vue';
 
 const dogStore = useDogStore();
 </script>
@@ -12,6 +12,10 @@ const dogStore = useDogStore();
       <p><b>Description: </b>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi quod fuga asperiores
         explicabo odit? Cumque, distinctio. Atque ducimus, sit magni, similique neque deserunt ipsum minima hic, animi
         dignissimos voluptatibus nam!</p>
+      <div class="flex-center buttons-container">
+        <CustomButton :action="dogStore.decrementIndex" label="Previus" />
+        <CustomButton :action="dogStore.incrementIndex" label="Next" />
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +42,11 @@ const dogStore = useDogStore();
   flex: 1;
 }
 
+.buttons-container {
+  min-width: 200px;
+  width: 50%;
+}
+
 /* Responsive styles */
 @media (min-width: 768px) {
   .detail-container {
@@ -50,7 +59,7 @@ const dogStore = useDogStore();
 
   .detail-img {
     max-width: 50%;
-    max-height: 50%;
+    max-height: 50vh;
   }
 }
 </style>

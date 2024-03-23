@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useDogStore } from "../store/dogStore";
-import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
 import { useRouter } from "vue-router";
+import { useDogStore } from "../store/dogStore";
+import CustomButton from "./CustomButton.vue";
 
 const props = defineProps<{ showFavorites?: boolean }>()
 

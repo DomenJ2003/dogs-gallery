@@ -63,7 +63,6 @@ const dogStore = useDogStore();
     color: var(--color-white);
 }
 
-/* Responsive styles */
 @media (min-width: 768px) {
 
     .app-bar {

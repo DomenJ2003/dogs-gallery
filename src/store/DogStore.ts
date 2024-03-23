@@ -4,6 +4,7 @@ import { fetchDogs, fetchDogsByBreed, fetchBreeds } from "../apis";
 type UseDogStore = {
     dogImgUrls: string[],
     selectedDogImg: string,
+    selectedDogImgIndex: number,
     breeds: string[],
     selectedBreed: string,
     loading: boolean,
@@ -21,7 +22,8 @@ export const useDogStore = defineStore({
         selectedBreed: "",
         loading: false,
         errorMessage: "",
-        errorFunction: () => Promise.resolve()
+        errorFunction: () => Promise.resolve(),
+        selectedDogImgIndex: 0
     }),
     getters: {
         getBreeds(): string[] {
@@ -35,9 +37,37 @@ export const useDogStore = defineStore({
         },
         getSelectedDogImg(): string{
             return this.selectedDogImg;
-        }
+        },
     },
     actions: {
+        incrementIndex(){
+            const lengthOfDogImgs  = this.dogImgUrls.length;
+            if(lengthOfDogImgs == 0){
+                return;
+            }
+            if(lengthOfDogImgs == this.selectedDogImgIndex+1){
+                this.selectedDogImgIndex = 0;
+                return;
+            }
+            this.selectedDogImgIndex++;
+            this.setSelectedImgByIndex();
+        },
+        decrementIndex(){
+            console.log("here");
+            const lengthOfDogImgs  = this.dogImgUrls.length;
+            if(lengthOfDogImgs == 0){
+                return;
+            }
+            if(this.selectedDogImgIndex == 0){
+                this.selectedDogImgIndex = lengthOfDogImgs-1;
+                return;
+            }
+            this.selectedDogImgIndex--;
+            this.setSelectedImgByIndex();
+        },
+        setSelectedImgByIndex(): void{
+            this.selectedDogImg = this.dogImgUrls[this.selectedDogImgIndex];
+        },
         setSelectedImg(dogImg: string): void{
             this.selectedDogImg = dogImg;
         },

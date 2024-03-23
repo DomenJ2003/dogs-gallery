@@ -2,8 +2,8 @@
 import { ref } from 'vue';
 import { useDogStore } from '../store/dogStore';
 import CustomButton from './CustomButton.vue';
-import CloseBarsButton from './CloseBarsButton.vue'
-import OpenBarsButton from './OpenBarsButton.vue'
+import CloseBarsButton from './CloseBarsButton.vue';
+import OpenBarsButton from './OpenBarsButton.vue';
 
 const dogStore = useDogStore();
 const searchWord = ref<string>("");
