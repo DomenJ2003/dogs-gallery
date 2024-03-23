@@ -1,8 +1,11 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <router-view />
+  <div class="container">
+    FAVORITES
+  </div>
 </template>
 
 <style>
