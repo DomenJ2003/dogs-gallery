@@ -8,7 +8,7 @@ const dogStore = useDogStore();
 <template>
     <div class="app-bar">
         <div class="flex title-logo">
-            <RouterLink class="link" to="/">
+            <RouterLink to="/">
                 <img src="../assets/vue.svg" class="logo">
             </RouterLink>
             <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>

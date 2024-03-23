@@ -1,24 +1,23 @@
-import axios from "axios";
 import { ApiResponse, DogsApiType } from "../types/apiFetchesType";
 
 export const fetchBreeds = async (): Promise<ApiResponse<DogsApiType>> => {
-  try{
-    const response = await axios.get<DogsApiType>(`https://dog.ceo/api/breeds/list`)
+  try {
+    const response = await fetch(`https://dog.ceo/api/breeds/list`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData: DogsApiType = await response.json();
+
     return {
       status: true,
-      data: response.data
+      data: responseData
     };
-  }catch (error) {
-    if (axios.isAxiosError(error)) {
-      return {
-        status: false,
-        message: error.response?.data || error.message
-      };
-    }
+  } catch (error) {
     return {
       status: false,
-      message: 'Network error occurred'
+      message: (error as Error).message || 'Network error occurred'
     };
   }
-  
-}
+};

@@ -8,6 +8,6 @@ import LoadingModal from './components/LoadingModal.vue';
   <ErrorPage />
   <LoadingModal />
   <AppBar />
-  <router-view :key="$route.path" />
+  <router-view />
 </template>
 
