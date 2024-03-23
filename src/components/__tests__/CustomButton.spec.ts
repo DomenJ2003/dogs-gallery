@@ -11,7 +11,6 @@ describe('CustomButton', ()=>{
     const customButton = mount(CustomButton, {
       props: {
         label: label,
-        show: true
       }
     });
 
@@ -25,7 +24,6 @@ describe('CustomButton', ()=>{
     const customButton = mount(CustomButton, {
       props: {
         action: action,
-        show: true
       }
     });
 
