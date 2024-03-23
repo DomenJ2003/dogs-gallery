@@ -70,7 +70,6 @@ const openDetails = (dogImgUrl: string) => {
 }
 
 .grid {
-  width: calc(100vw - 250px);
   display: grid;
   grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;

@@ -27,7 +27,7 @@ const dogStore = useDogStore();
     position: sticky;
     top: 0;
     width: 100%;
-    height: 80px;
+    height: 100px;
     background-color: var(--color-secondary);
     color: #888;
     display: flex;
@@ -42,14 +42,15 @@ const dogStore = useDogStore();
 }
 
 .logo {
-    height: 80px;
+    height: 40px;
     object-fit: contain;
     padding: 5px 20px;
 }
 
 .links {
-    margin-right: 50px;
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
 }
 
 .link {
@@ -60,5 +61,31 @@ const dogStore = useDogStore();
 
 .title {
     color: var(--color-white);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+
+    .app-bar {
+        height: 80px;
+    }
+
+    .logo {
+        height: 80px;
+    }
+
+    .title-logo {
+        justify-content: center;
+    }
+
+    .links {
+        margin-right: 0;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .link {
+        padding: 5px 10px;
+    }
 }
 </style>
