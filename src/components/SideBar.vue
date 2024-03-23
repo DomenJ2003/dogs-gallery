@@ -19,7 +19,6 @@ const setBreedFilter = (breed: string) => {
 <template>
     <div class="container-sidebar">
         <div class="header-sidebar">
-            <img src="../assets/vue.svg" class="logo" v-on:click="() => dogStore.fetchDogs(false)">
             <div>
                 <input placeholder="Search" type="text" class="search-filter" v-model="searchWord" />
             </div>
@@ -38,19 +37,14 @@ const setBreedFilter = (breed: string) => {
 <style scoped>
 .container-sidebar {
     position: sticky;
-    top: 0;
+    top: 80px;
     background-color: var(--color-secondary);
-    height: 100vh;
+    height: calc(100vh - 80px);
 }
 
 .header-sidebar {
     display: flex;
     flex-direction: column;
-}
-
-.logo {
-    height: 80px;
-    object-fit: contain;
 }
 
 .search-filter {
@@ -64,7 +58,7 @@ const setBreedFilter = (breed: string) => {
 
 .breeds-list {
     position: relative;
-    height: calc(100vh - 115px);
+    height: calc(100vh - 121px);
     overflow-y: scroll;
 }
 </style>

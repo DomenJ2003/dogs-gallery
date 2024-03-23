@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useDogStore } from "../store/dogStore";
-import AppBar from "./AppBar.vue";
 import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
 
@@ -29,7 +28,6 @@ const toggleFavorite = (dogImgUrl: string) => {
 
 <template>
   <div class="grid-container">
-    <AppBar />
     <div class="grid">
       <div v-for="dogImgUrl in dogStore.getDogImgUrls" :key="dogImgUrl" class="img-container flex-center-col">
         <img @click="() => console.log(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />

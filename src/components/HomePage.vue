@@ -13,5 +13,7 @@ import SideBar from './Sidebar.vue';
 <style>
 .container {
   display: flex;
+  position: sticky;
+  top: 80px
 }
 </style>
