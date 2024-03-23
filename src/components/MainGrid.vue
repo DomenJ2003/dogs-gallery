@@ -64,7 +64,7 @@ const toggleFavorite = (dogImgUrl: string) => {
   grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;
   padding: 20px 10px;
-  overflow-y: scroll;
+
 }
 
 .img-card {

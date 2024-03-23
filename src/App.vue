@@ -11,8 +11,3 @@ import LoadingModal from './components/LoadingModal.vue';
   <router-view />
 </template>
 
-<style>
-.container {
-  display: flex;
-}
-</style>

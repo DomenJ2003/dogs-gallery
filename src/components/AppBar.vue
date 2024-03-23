@@ -8,7 +8,9 @@ const dogStore = useDogStore();
 <template>
     <div class="app-bar">
         <div class="flex title-logo">
-            <img src="../assets/vue.svg" class="logo" v-on:click="() => dogStore.fetchDogs(false)">
+            <RouterLink class="link" to="/">
+                <img src="../assets/vue.svg" class="logo">
+            </RouterLink>
             <h1 class="title" v-if="!dogStore.selectedBreed">Welcome to Dog Libery</h1>
             <h1 class="title" v-else>{{ dogStore.selectedBreed.toLocaleUpperCase() }}</h1>
         </div>
