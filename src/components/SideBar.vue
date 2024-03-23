@@ -27,7 +27,7 @@ const setBreedFilter = (breed: string) => {
         <div class="breeds-list">
             <div v-for="breed in dogStore.getBreeds">
                 <div class="breed-item" v-if="breed.includes(searchWord)" v-on:click="() => setBreedFilter(breed)">
-                    <CustomButton :label="breed" :action="() => { }" :show="true" />
+                    <CustomButton :label="breed" :action="() => { }" />
                 </div>
             </div>
         </div>

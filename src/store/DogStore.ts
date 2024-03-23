@@ -7,7 +7,9 @@ type UseDogStore = {
     breeds: string[],
     selectedBreed: string,
     loading: boolean,
-    errorMessage: string
+    errorMessage: string,
+    errorFunction: ()=>Promise<void>
+    
 }
 
 export const useDogStore = defineStore({
@@ -18,7 +20,8 @@ export const useDogStore = defineStore({
         breeds: [],
         selectedBreed: "",
         loading: false,
-        errorMessage: ""
+        errorMessage: "",
+        errorFunction: () => Promise.resolve()
     }),
     getters: {
         getBreeds(): string[] {
@@ -51,10 +54,12 @@ export const useDogStore = defineStore({
                 }else if(fetchDogsResponse.data.status === "success"){
                     this.dogImgUrls = fetchDogsResponse.data.message;
                 }
+                this.errorMessage = "";
                 this.selectedDogImg = "";
                 this.selectedBreed = "";
             }else{
                 this.errorMessage = fetchDogsResponse.message;
+                this.errorFunction = this.fetchDogs;
             }
             
             this.loading = false;
@@ -67,8 +72,10 @@ export const useDogStore = defineStore({
                         this.dogImgUrls = fetchDogsByBreedResponse.data.message;
                         this.selectedDogImg = "";
                     }
+                    this.errorMessage = "";
                 }else{
                     this.errorMessage = fetchDogsByBreedResponse.message;
+                    this.errorFunction = this.fetchDogsByBreed;
                 }
                 this.loading = false;
         },
@@ -77,11 +84,14 @@ export const useDogStore = defineStore({
             const fetchBreedsRessponse = await fetchBreeds();
 
             if(fetchBreedsRessponse.status){
+
                 if(fetchBreedsRessponse.data.status === "success"){
                     this.breeds = fetchBreedsRessponse.data.message;
                 }
+                this.errorMessage = "";
             }else{
                 this.errorMessage = fetchBreedsRessponse.message;
+                this.errorFunction = this.fetchBreeds;
             }
             this.loading = false;
         }

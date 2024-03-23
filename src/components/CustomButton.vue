@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{ label: string, action: () => void, show: boolean }>() // show
+defineProps<{ label: string, action: () => void }>() // show
 </script>
 
 <template>
-  <button class="button" role="button" @click="action" v-if="show">{{ label }}</button>
+  <button class="button" role="button" @click="action">{{ label }}</button>
 </template>
 
 <style scoped>

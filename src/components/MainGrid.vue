@@ -33,13 +33,13 @@ const toggleFavorite = (dogImgUrl: string) => {
         <img @click="() => console.log(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />
         <div class="img-bar">
           <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'"
-            :show="true" :action="() => toggleFavorite(dogImgUrl)" />
+            :action="() => toggleFavorite(dogImgUrl)" />
         </div>
       </div>
     </div>
     <div class="flex-center">
-      <div class="load-more-button-container">
-        <CustomButton label="Load More" :action="loadMoreImages" :show="!dogStore.getSelectedBreed" />
+      <div class="load-more-button-container" v-if="!dogStore.getSelectedBreed">
+        <CustomButton label=" Load More" :action="loadMoreImages" />
       </div>
     </div>
   </div>
