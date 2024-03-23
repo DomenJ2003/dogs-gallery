@@ -12,12 +12,12 @@ export const fetchBreeds = async (): Promise<ApiResponse<DogsApiType>> => {
 
     return {
       status: true,
-      data: responseData
+      data: responseData,
     };
   } catch (error) {
     return {
       status: false,
-      message: (error as Error).message || 'Network error occurred'
+      message: (error as Error).message || "Network error occurred",
     };
   }
 };

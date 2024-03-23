@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useDogStore } from '../store/dogStore';
-import MainGrid from './MainGrid.vue';
-import SideBar from './Sidebar.vue';
+import { useDogStore } from "../store/dogStore";
+import MainGrid from "./MainGrid.vue";
+import SideBar from "./Sidebar.vue";
 
 const dogStore = useDogStore();
 dogStore.fetchDogs();
@@ -18,6 +18,6 @@ dogStore.fetchDogs();
 .container {
   display: flex;
   position: sticky;
-  top: 80px
+  top: 80px;
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ label: string, action: () => void }>() // show
+defineProps<{ label: string; action: () => void }>(); // show
 </script>
 
 <template>
@@ -25,7 +25,9 @@ defineProps<{ label: string, action: () => void }>() // show
 }
 
 .button:focus {
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow:
+    0px 0.5px 1px rgba(0, 0, 0, 0.1),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
 }
 </style>

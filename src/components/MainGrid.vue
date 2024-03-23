@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useDogStore } from "../store/dogStore";
 import CustomButton from "./CustomButton.vue";
 
-const props = defineProps<{ showFavorites?: boolean }>()
+const props = defineProps<{ showFavorites?: boolean }>();
 
 const dogStore = useDogStore();
 const favoritedImgsJson: string | null = localStorage.getItem("favoritedImgs");
@@ -13,14 +13,15 @@ if (favoritedImgsJson) {
   favoritedImgs.value = JSON.parse(favoritedImgsJson);
 }
 
-
 const loadMoreImages = () => {
   dogStore.fetchDogs(true);
 };
 
 const toggleFavorite = (dogImgUrl: string) => {
   if (favoritedImgs.value.includes(dogImgUrl)) {
-    favoritedImgs.value = favoritedImgs.value.filter(favoritedImg => favoritedImg !== dogImgUrl);
+    favoritedImgs.value = favoritedImgs.value.filter(
+      (favoritedImg) => favoritedImg !== dogImgUrl
+    );
   } else {
     favoritedImgs.value.push(dogImgUrl);
   }
@@ -36,26 +37,37 @@ const openDetails = (dogImgUrl: string) => {
   const index = dogStore.dogImgUrls.indexOf(dogImgUrl);
   dogStore.setDogImgIndex(index);
   dogStore.setSelectedImg(dogImgUrl);
-  router.push("/details")
-
-}
-
+  router.push("/details");
+};
 </script>
 
 <template>
   <div class="grid-container">
     <div class="grid flex-center-col">
-      <div v-for="dogImgUrl in dogStore.getDogImgUrls" :key="dogImgUrl" class="img-container flex-center-col">
-        <img @click="() => openDetails(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />
+      <div
+        v-for="dogImgUrl in dogStore.getDogImgUrls"
+        :key="dogImgUrl"
+        class="img-container flex-center-col"
+      >
+        <img
+          @click="() => openDetails(dogImgUrl)"
+          :src="dogImgUrl"
+          alt="Dog image"
+          class="dogImg"
+        />
         <div class="img-bar">
-          <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'"
-            :action="() => toggleFavorite(dogImgUrl)" />
+          <CustomButton
+            :label="
+              favoritedImgs.includes(dogImgUrl)
+                ? 'Remove from favorites'
+                : 'Add to favorite'
+            "
+            :action="() => toggleFavorite(dogImgUrl)"
+          />
         </div>
       </div>
       <div class="flex-center" v-if="dogStore.getDogImgUrls.length === 0">
-        <div class="">
-          There is no data to display
-        </div>
+        <div class="">There is no data to display</div>
       </div>
     </div>
     <div class="flex-center">

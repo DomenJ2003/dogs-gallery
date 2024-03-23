@@ -1,9 +1,13 @@
 import { ApiResponse, DogsApiType } from "../types/apiFetchesType";
 
-export const fetchDogsByBreed = async (selectedBreed: string): Promise<ApiResponse<DogsApiType>> => {
+export const fetchDogsByBreed = async (
+  selectedBreed: string
+): Promise<ApiResponse<DogsApiType>> => {
   try {
-    const response = await fetch(`https://dog.ceo/api/breed/${selectedBreed}/images`);
-    
+    const response = await fetch(
+      `https://dog.ceo/api/breed/${selectedBreed}/images`
+    );
+
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -12,12 +16,12 @@ export const fetchDogsByBreed = async (selectedBreed: string): Promise<ApiRespon
 
     return {
       status: true,
-      data: responseData
+      data: responseData,
     };
   } catch (error) {
     return {
       status: false,
-      message: (error as Error).message || 'Network error occurred'
+      message: (error as Error).message || "Network error occurred",
     };
   }
 };

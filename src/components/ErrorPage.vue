@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { useDogStore } from '../store/dogStore';
-import CustomButton from './CustomButton.vue';
+import { useDogStore } from "../store/dogStore";
+import CustomButton from "./CustomButton.vue";
 
 const dogStore = useDogStore();
 </script>
 
 <template>
-  <div class="error-modal-container flex-center-col" v-if="dogStore.errorMessage !== ''">
+  <div
+    class="error-modal-container flex-center-col"
+    v-if="dogStore.errorMessage !== ''"
+  >
     <div class="card flex-center-col">
-      <h3 class="error-title">
-        Error occurred
-      </h3>
+      <h3 class="error-title">Error occurred</h3>
       <div class="error-body">
         {{ dogStore.errorMessage }}
       </div>

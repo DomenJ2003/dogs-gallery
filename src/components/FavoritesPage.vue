@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from '@vue/runtime-dom';
-import { useDogStore } from '../store/dogStore';
-import MainGrid from './MainGrid.vue';
+import { ref } from "@vue/runtime-dom";
+import { useDogStore } from "../store/dogStore";
+import MainGrid from "./MainGrid.vue";
 
 const dogStore = useDogStore();
 
@@ -10,9 +10,7 @@ const favoritedImgs = ref<string[]>([]);
 if (favoritedImgsJson) {
   favoritedImgs.value = JSON.parse(favoritedImgsJson);
 }
-dogStore.setDogImgUrls(favoritedImgs.value)
-
-
+dogStore.setDogImgUrls(favoritedImgs.value);
 </script>
 
 <template>

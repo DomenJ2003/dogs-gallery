@@ -47,7 +47,6 @@ const dogStore = useDogStore();
   width: 50%;
 }
 
-/* Responsive styles */
 @media (min-width: 768px) {
   .detail-container {
     flex-direction: row;

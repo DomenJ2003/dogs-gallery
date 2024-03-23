@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ action: () => void }>()
+defineProps<{ action: () => void }>();
 </script>
 
 <template>
