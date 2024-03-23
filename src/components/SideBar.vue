@@ -2,25 +2,37 @@
 import { ref } from 'vue';
 import { useDogStore } from '../store/dogStore';
 import CustomButton from './CustomButton.vue';
+import CloseBarsButton from './CloseBarsButton.vue'
+import OpenBarsButton from './OpenBarsButton.vue'
 
 const dogStore = useDogStore();
+const searchWord = ref<string>("");
+const openSideBar = ref<boolean>(window.matchMedia("(min-width: 520px)").matches);
+
 dogStore.fetchBreeds();
 dogStore.fetchDogs();
 
-const searchWord = ref<string>("");
 
 const setBreedFilter = (breed: string) => {
     dogStore.setSelectedBreed(breed);
     dogStore.fetchDogsByBreed();
 }
 
+const toggleSideBar = () => {
+    openSideBar.value = !openSideBar.value;
+    console.log(openSideBar.value);
+}
+
 </script>
 
 <template>
-    <div class="container-sidebar">
+    <div class="container-sidebar" v-if="openSideBar">
         <div class="header-sidebar">
-            <div>
+            <div class="flex">
                 <input placeholder="Search" type="text" class="search-filter" v-model="searchWord" />
+                <div class="close-button flex-center">
+                    <CloseBarsButton :action="toggleSideBar" />
+                </div>
             </div>
         </div>
 
@@ -32,14 +44,19 @@ const setBreedFilter = (breed: string) => {
             </div>
         </div>
     </div>
+    <div v-else class="open-button">
+        <OpenBarsButton :action="toggleSideBar" />
+    </div>
 </template>
 
 <style scoped>
 .container-sidebar {
-    position: sticky;
-    top: 80px;
+    position: fixed;
+    top: 95px;
     background-color: var(--color-secondary);
-    height: calc(100vh - 80px);
+    width: 100vw;
+    height: 100%;
+    padding-bottom: 5px;
 }
 
 .header-sidebar {
@@ -48,7 +65,7 @@ const setBreedFilter = (breed: string) => {
 }
 
 .search-filter {
-    width: 90%;
+    width: calc(90% - 20px);
     padding: 4px 8px;
     margin: 4px;
     display: inline-block;
@@ -61,5 +78,33 @@ const setBreedFilter = (breed: string) => {
     position: relative;
     height: calc(100vh - 121px);
     overflow-y: scroll;
+}
+
+.close-button {
+    width: 20px;
+    padding-right: 10px;
+}
+
+
+@media (min-width: 520px) {
+
+    .container-sidebar {
+        top: 80px;
+        position: sticky;
+        height: calc(100vh - 80px);
+        width: auto;
+    }
+
+    .search-filter {
+        width: 90%;
+    }
+
+    .close-button {
+        display: none;
+    }
+
+    .open-button {
+        display: none;
+    }
 }
 </style>

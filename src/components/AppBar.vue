@@ -50,7 +50,7 @@ const dogStore = useDogStore();
 .links {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 .link {
@@ -79,7 +79,7 @@ const dogStore = useDogStore();
     }
 
     .links {
-        margin-right: 0;
+        margin-right: 20px;
         justify-content: center;
         flex-direction: row;
     }

@@ -31,6 +31,7 @@ const dogStore = useDogStore();
   max-height: 50vh;
   border-radius: 10px;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 
 .detail-content {
@@ -49,7 +50,7 @@ const dogStore = useDogStore();
 
   .detail-img {
     max-width: 50%;
-    max-height: 100%;
+    max-height: 50%;
   }
 }
 </style>
