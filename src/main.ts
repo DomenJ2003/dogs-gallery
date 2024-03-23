@@ -4,12 +4,14 @@ import './style.css';
 import App from './App.vue';
 import HomePage from './components/HomePage.vue';
 import FavoritesPage from './components/FavoritesPage.vue';
+import DetailPage from './components/DetailPage.vue'
 import { createMemoryHistory, createRouter } from 'vue-router';
 
 
 const routes = [
   { path: '/', component: HomePage },
   { path: '/favorites', component: FavoritesPage },
+  { path: '/details', component: DetailPage }
 ];
 
 const router = createRouter({

@@ -2,6 +2,7 @@
 import { useDogStore } from "../store/dogStore";
 import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
+import { useRouter } from "vue-router";
 
 const props = defineProps<{ showFavorites?: boolean }>()
 
@@ -28,13 +29,22 @@ const toggleFavorite = (dogImgUrl: string) => {
     dogStore.setDogImgUrls(favoritedImgs.value);
   }
 };
+
+const router = useRouter();
+
+const openDetails = (dogImgUrl: string) => {
+  dogStore.setSelectedImg(dogImgUrl);
+  router.push("/details")
+
+}
+
 </script>
 
 <template>
   <div class="grid-container">
-    <div class="grid">
+    <div class="grid flex-center-col">
       <div v-for="dogImgUrl in dogStore.getDogImgUrls" :key="dogImgUrl" class="img-container flex-center-col">
-        <img @click="() => console.log(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />
+        <img @click="() => openDetails(dogImgUrl)" :src="dogImgUrl" alt="Dog image" class="dogImg" />
         <div class="img-bar">
           <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'"
             :action="() => toggleFavorite(dogImgUrl)" />
@@ -60,11 +70,11 @@ const toggleFavorite = (dogImgUrl: string) => {
 }
 
 .grid {
+  width: calc(100vw - 250px);
   display: grid;
   grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;
   padding: 20px 10px;
-
 }
 
 .img-card {
