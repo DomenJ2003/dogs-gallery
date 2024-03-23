@@ -1,5 +1,6 @@
 import axios from "axios";
 import { defineStore } from "pinia";
+import { fetchDogs, fetchDogsByBreed, fetchBreeds } from "../apis";
 import { DogsApiType } from "../types/apiFetchesType";
 
 type UseDogStore = {
@@ -7,7 +8,8 @@ type UseDogStore = {
     selectedDogImg: string,
     breeds: string[],
     selectedBreed: string,
-    loading: boolean
+    loading: boolean,
+    errorMessage: string
 }
 
 export const useDogStore = defineStore({
@@ -17,10 +19,11 @@ export const useDogStore = defineStore({
         selectedDogImg: "",
         breeds: [],
         selectedBreed: "",
-        loading: false
+        loading: false,
+        errorMessage: ""
     }),
     getters: {
-        getBreeds() : string[]{
+        getBreeds(): string[] {
             return this.breeds;
         },
         getDogImgUrls(): string[] {
@@ -41,53 +44,48 @@ export const useDogStore = defineStore({
             this.selectedBreed = selectedBreed;
         },
         async fetchDogs(append: boolean = false): Promise<void> {
-            try {
-                this.loading = true;
-                const response = await axios.get(`https://dog.ceo/api/breeds/image/random/12`)
-                const dogsData = response.data as DogsApiType;
-                if(dogsData.status === "success"){
-                    if(append){
-                        this.dogImgUrls = this.dogImgUrls.concat(dogsData.message);
-                    }else{
-                        this.dogImgUrls = dogsData.message;
-                    }
-                    this.selectedDogImg = "";
-                    this.selectedBreed = "";
+            this.loading = true;
+            const fetchDogsResponse = await fetchDogs();
+
+            if(fetchDogsResponse.status){
+                if (fetchDogsResponse.data.status === "success" && append){
+                    this.dogImgUrls = this.dogImgUrls.concat(fetchDogsResponse.data.message);
+                }else if(fetchDogsResponse.data.status === "success"){
+                    this.dogImgUrls = fetchDogsResponse.data.message;
                 }
-                this.loading = false;
-            } catch (error) {
-                console.log(error);
-                this.loading = false;
+                this.selectedDogImg = "";
+                this.selectedBreed = "";
+            }else{
+                this.errorMessage = fetchDogsResponse.message;
             }
+            
+            this.loading = false;
         },
         async fetchDogsByBreed(): Promise<void> {
-            try {
                 this.loading = true;
-                const response = await axios.get(`https://dog.ceo/api/breed/${this.selectedBreed}/images`)
-                const dogsData = response.data as DogsApiType;
-                if(dogsData.status === "success"){
-                    this.dogImgUrls = dogsData.message;
-                    this.selectedDogImg = "";
+                const fetchDogsByBreedResponse = await fetchDogsByBreed(this.selectedBreed)
+                if(fetchDogsByBreedResponse.status){
+                    if(fetchDogsByBreedResponse.data.status === "success"){
+                        this.dogImgUrls = fetchDogsByBreedResponse.data.message;
+                        this.selectedDogImg = "";
+                    }
+                }else{
+                    this.errorMessage = fetchDogsByBreedResponse.message;
                 }
                 this.loading = false;
-            } catch (error) {
-                console.log(error);
-                this.loading = false;
-            }
         },
         async fetchBreeds(): Promise<void> {
-            try {
-                this.loading = true;
-                const response = await axios.get('https://dog.ceo/api/breeds/list')
-                const breedsData = response.data as DogsApiType;
-                if(breedsData && breedsData.status === "success"){
-                    this.breeds = breedsData.message;
+            this.loading = true;
+            const fetchBreedsRessponse = await fetchBreeds();
+
+            if(fetchBreedsRessponse.status){
+                if(fetchBreedsRessponse.data.status === "success"){
+                    this.breeds = fetchBreedsRessponse.data.message;
                 }
-                this.loading = false;
-            } catch (error) {
-                console.log(error);
-                this.loading = false;
+            }else{
+                this.errorMessage = fetchBreedsRessponse.message;
             }
+            this.loading = false;
         }
     }
 })
