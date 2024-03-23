@@ -1,7 +1,5 @@
-import axios from "axios";
 import { defineStore } from "pinia";
 import { fetchDogs, fetchDogsByBreed, fetchBreeds } from "../apis";
-import { DogsApiType } from "../types/apiFetchesType";
 
 type UseDogStore = {
     dogImgUrls: string[],
