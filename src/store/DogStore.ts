@@ -44,6 +44,10 @@ export const useDogStore = defineStore({
         setSelectedBreed(selectedBreed: string): void{
             this.selectedBreed = selectedBreed;
         },
+        setDogImgUrls(dogImgUrls: string[]){
+            this.dogImgUrls = dogImgUrls;
+            this.selectedBreed = "favoritest";
+        },
         async fetchDogs(append: boolean = false): Promise<void> {
             this.loading = true;
             const fetchDogsResponse = await fetchDogs();

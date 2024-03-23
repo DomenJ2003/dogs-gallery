@@ -37,9 +37,9 @@ const setBreedFilter = (breed: string) => {
 <style scoped>
 .container-sidebar {
     position: sticky;
-    top: 80px;
     background-color: var(--color-secondary);
     height: calc(100vh - 80px);
+    width: 270px
 }
 
 .header-sidebar {
@@ -48,6 +48,7 @@ const setBreedFilter = (breed: string) => {
 }
 
 .search-filter {
+    width: 90%;
     padding: 4px 8px;
     margin: 4px;
     display: inline-block;

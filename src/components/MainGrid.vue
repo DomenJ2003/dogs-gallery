@@ -3,6 +3,8 @@ import { useDogStore } from "../store/dogStore";
 import CustomButton from "./CustomButton.vue";
 import { ref } from 'vue';
 
+const props = defineProps<{ showFavorites?: boolean }>()
+
 const dogStore = useDogStore();
 const favoritedImgsJson: string | null = localStorage.getItem("favoritedImgs");
 const favoritedImgs = ref<string[]>([]);
@@ -22,7 +24,9 @@ const toggleFavorite = (dogImgUrl: string) => {
     favoritedImgs.value.push(dogImgUrl);
   }
   localStorage.setItem("favoritedImgs", JSON.stringify(favoritedImgs.value));
-  console.log(localStorage.getItem("favoritedImgs"));
+  if (props.showFavorites) {
+    dogStore.setDogImgUrls(favoritedImgs.value);
+  }
 };
 </script>
 
@@ -34,6 +38,11 @@ const toggleFavorite = (dogImgUrl: string) => {
         <div class="img-bar">
           <CustomButton :label="favoritedImgs.includes(dogImgUrl) ? 'Remove from favorites' : 'Add to favorite'"
             :action="() => toggleFavorite(dogImgUrl)" />
+        </div>
+      </div>
+      <div class="flex-center" v-if="dogStore.getDogImgUrls.length === 0">
+        <div class="">
+          There is no data to display
         </div>
       </div>
     </div>
@@ -55,7 +64,7 @@ const toggleFavorite = (dogImgUrl: string) => {
   grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;
   padding: 20px 10px;
-  /* background-color: var(--color-primary); */
+  overflow-y: scroll;
 }
 
 .img-card {
