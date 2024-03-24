@@ -41,7 +41,7 @@ defineProps<{ action: () => void; isCloseButton?: boolean }>();
   position: absolute;
   width: 20px;
   height: 2px;
-  background-color: #000;
+  background-color: var(--color-white);
 }
 
 .close-button::before {
