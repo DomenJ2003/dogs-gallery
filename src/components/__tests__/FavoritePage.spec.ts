@@ -1,7 +1,7 @@
 import { expect, it, describe } from "vitest";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import FavoritesPage from "../FavoritesPage.vue";
+import FavoritesPage from "../pages/FavoritesPage.vue";
 import { useDogStore } from "../../store/dogStore";
 
 const MainGrid = {

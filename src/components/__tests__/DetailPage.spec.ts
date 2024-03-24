@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import { expect, it, describe } from "vitest";
 import { createPinia } from "pinia";
 import { useDogStore } from "../../store/dogStore";
-import DetailPage from "../DetailPage.vue";
+import DetailPage from "../pages/DetailPage.vue";
 
 const CustomButton = {
   template: "<button>{{ label }}</button>",

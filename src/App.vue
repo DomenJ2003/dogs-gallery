@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import AppBar from "./components/AppBar.vue";
-import ErrorPage from "./components/ErrorPage.vue";
-import LoadingModal from "./components/LoadingModal.vue";
+import ErrorModal from "./components/modals/ErrorModal.vue";
+import LoadingModal from "./components/modals/LoadingModal.vue";
 </script>
 
 <template>
-  <ErrorPage />
+  <ErrorModal />
   <LoadingModal />
   <AppBar />
   <router-view />

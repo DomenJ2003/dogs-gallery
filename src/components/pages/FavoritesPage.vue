@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "@vue/runtime-dom";
-import { useDogStore } from "../store/dogStore";
-import MainGrid from "./MainGrid.vue";
+import { useDogStore } from "../../store/dogStore";
+import MainGrid from "../MainGrid.vue";
 
 const dogStore = useDogStore();
 

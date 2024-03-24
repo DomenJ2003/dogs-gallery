@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { expect, it, describe, vitest } from "vitest";
-import SidebarButton from "../SidebarButton.vue";
+import SidebarButton from "../common/SidebarButton.vue";
 
 describe("SidebarButton", () => {
   it("should call action on click", async () => {

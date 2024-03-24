@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { expect, it, describe, vitest } from "vitest";
-import CustomButton from "../CustomButton.vue";
+import CustomButton from "../common/CustomButton.vue";
 
 describe("CustomButton", () => {
   it("should display label", () => {

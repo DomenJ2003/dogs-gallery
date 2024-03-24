@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useDogStore } from "../store/dogStore";
-import CustomButton from "./CustomButton.vue";
+import CustomButton from "./common/CustomButton.vue";
 
 const props = defineProps<{ showFavorites?: boolean }>();
 

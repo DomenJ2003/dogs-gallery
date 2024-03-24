@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import { expect, it, describe } from "vitest";
 import { createPinia } from "pinia";
 import { useDogStore } from "../../store/dogStore";
-import ErrorPage from "../ErrorPage.vue";
+import ErrorModal from "../modals/ErrorModal.vue";
 
 const CustomButton = {
   template: "<button>{{ label }}</button>",
@@ -14,12 +14,12 @@ const mockUseDogStore = () => {
   return useDogStore(pinia);
 };
 
-describe("ErrorPage", () => {
+describe("ErrorModal", () => {
   it("renders error modal when there is an error message", () => {
     const dogStore = mockUseDogStore();
     const errorMessage = "Error";
     dogStore.errorMessage = errorMessage;
-    const wrapper = mount(ErrorPage, {
+    const wrapper = mount(ErrorModal, {
       global: {
         components: {
           CustomButton,

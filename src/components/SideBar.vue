@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useDogStore } from "../store/dogStore";
-import CustomButton from "./CustomButton.vue";
-import SidebarButton from "./SidebarButton.vue";
+import CustomButton from "./common/CustomButton.vue";
+import SidebarButton from "./common/SidebarButton.vue";
 
 const dogStore = useDogStore();
 const searchWord = ref<string>("");

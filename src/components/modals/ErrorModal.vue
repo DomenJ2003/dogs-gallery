@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDogStore } from "../store/dogStore";
-import CustomButton from "./CustomButton.vue";
+import { useDogStore } from "../../store/dogStore";
+import CustomButton from "../common/CustomButton.vue";
 
 const dogStore = useDogStore();
 </script>
