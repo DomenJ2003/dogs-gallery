@@ -49,6 +49,7 @@ export const useDogStore = defineStore({
       }
       if (lengthOfDogImgs == this.selectedDogImgIndex + 1) {
         this.selectedDogImgIndex = 0;
+        this.setSelectedImgByIndex();
         return;
       }
       this.selectedDogImgIndex++;
@@ -61,6 +62,7 @@ export const useDogStore = defineStore({
       }
       if (this.selectedDogImgIndex == 0) {
         this.selectedDogImgIndex = lengthOfDogImgs - 1;
+        this.setSelectedImgByIndex();
         return;
       }
       this.selectedDogImgIndex--;
