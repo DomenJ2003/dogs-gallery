@@ -2,8 +2,7 @@
 import { ref } from "vue";
 import { useDogStore } from "../store/dogStore";
 import CustomButton from "./CustomButton.vue";
-import CloseBarsButton from "./CloseBarsButton.vue";
-import OpenBarsButton from "./OpenBarsButton.vue";
+import SidebarButton from "./SidebarButton.vue";
 
 const dogStore = useDogStore();
 const searchWord = ref<string>("");
@@ -34,7 +33,7 @@ const toggleSideBar = () => {
           v-model="searchWord"
         />
         <div class="close-button flex-center">
-          <CloseBarsButton :action="toggleSideBar" />
+          <SidebarButton :isCloseButton="true" :action="toggleSideBar" />
         </div>
       </div>
     </div>
@@ -52,7 +51,7 @@ const toggleSideBar = () => {
     </div>
   </div>
   <div v-else class="open-button">
-    <OpenBarsButton :action="toggleSideBar" />
+    <SidebarButton :isCloseButton="false" :action="toggleSideBar" />
   </div>
 </template>
 
@@ -92,6 +91,11 @@ const toggleSideBar = () => {
   padding-right: 10px;
 }
 
+.open-button {
+  position: fixed;
+  top: 110px;
+}
+
 @media (min-width: 520px) {
   .container-sidebar {
     top: 80px;
@@ -105,11 +109,13 @@ const toggleSideBar = () => {
   }
 
   .close-button {
-    display: none;
+    margin-right: 5px;
   }
+}
 
+@media (min-width: 768px) {
   .open-button {
-    display: none;
+    top: 90px;
   }
 }
 </style>

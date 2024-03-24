@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ label: string; action: () => void }>(); // show
+defineProps<{ label: string; action: () => void }>();
 </script>
 
 <template>
