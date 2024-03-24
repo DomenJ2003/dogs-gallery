@@ -23,7 +23,7 @@ defineProps<{ action: () => void; isCloseButton?: boolean }>();
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #000;
+  background-color: var(--color-secondary);
   margin-bottom: 5px;
 }
 
@@ -32,7 +32,7 @@ defineProps<{ action: () => void; isCloseButton?: boolean }>();
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #000;
+  background-color: var(--color-secondary);
 }
 
 .close-button::before,

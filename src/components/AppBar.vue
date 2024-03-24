@@ -38,7 +38,6 @@ const goHome = () => {
   width: 100%;
   height: 100px;
   background-color: var(--color-secondary);
-  color: #888;
   display: flex;
   align-items: center;
   justify-content: space-between;
