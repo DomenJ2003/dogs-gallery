@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { useDogStore } from '../store/dogStore';
-import CustomButton from './CustomButton.vue';
+import { useDogStore } from "../store/dogStore";
+import CustomButton from "./CustomButton.vue";
 
 const dogStore = useDogStore();
 </script>
 
 <template>
   <div class="detail-container flex">
-    <img :src="dogStore.getSelectedDogImg" alt="Dog image" class="detail-img">
+    <img :src="dogStore.getSelectedDogImg" alt="Dog image" class="detail-img" />
     <div class="detail-content">
-      <p><b>Description: </b>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi quod fuga asperiores
-        explicabo odit? Cumque, distinctio. Atque ducimus, sit magni, similique neque deserunt ipsum minima hic, animi
-        dignissimos voluptatibus nam!</p>
+      <p>
+        <b>Description: </b>Lorem ipsum dolor, sit amet consectetur adipisicing
+        elit. Sequi quod fuga asperiores explicabo odit? Cumque, distinctio.
+        Atque ducimus, sit magni, similique neque deserunt ipsum minima hic,
+        animi dignissimos voluptatibus nam!
+      </p>
       <div class="flex-center buttons-container">
-        <CustomButton :action="dogStore.decrementIndex" label="Previus" />
+        <CustomButton :action="dogStore.decrementIndex" label="Previous" />
         <CustomButton :action="dogStore.incrementIndex" label="Next" />
       </div>
     </div>

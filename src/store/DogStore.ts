@@ -55,7 +55,6 @@ export const useDogStore = defineStore({
       this.setSelectedImgByIndex();
     },
     decrementIndex() {
-      console.log("here");
       const lengthOfDogImgs = this.dogImgUrls.length;
       if (lengthOfDogImgs == 0) {
         return;

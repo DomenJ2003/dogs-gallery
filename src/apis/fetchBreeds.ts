@@ -1,6 +1,6 @@
-import { ApiResponse, DogsApiType } from "../types/apiFetchesType";
+import { ApiResponse, DogsApi } from "../types";
 
-export const fetchBreeds = async (): Promise<ApiResponse<DogsApiType>> => {
+export const fetchBreeds = async (): Promise<ApiResponse<DogsApi>> => {
   try {
     const response = await fetch(`https://dog.ceo/api/breeds/list`);
 
@@ -8,7 +8,7 @@ export const fetchBreeds = async (): Promise<ApiResponse<DogsApiType>> => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const responseData: DogsApiType = await response.json();
+    const responseData: DogsApi = await response.json();
 
     return {
       status: true,

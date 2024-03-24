@@ -36,7 +36,7 @@ describe("DetailComponent", () => {
 
     const buttons = wrapper.findAllComponents(CustomButton);
     expect(buttons.length).toBe(2);
-    expect(buttons[0].text()).toBe("Previus");
+    expect(buttons[0].text()).toBe("Previous");
     expect(buttons[1].text()).toBe("Next");
   });
 });

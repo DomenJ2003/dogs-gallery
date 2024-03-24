@@ -9,8 +9,3 @@ type ResponseFailure = {
 };
 
 export type ApiResponse<T> = ResponseSuccess<T> | ResponseFailure;
-
-export type DogsApiType = {
-  message: string[];
-  status: "success" | "error";
-};

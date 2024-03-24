@@ -20,7 +20,6 @@ const setBreedFilter = (breed: string) => {
 
 const toggleSideBar = () => {
   openSideBar.value = !openSideBar.value;
-  console.log(openSideBar.value);
 };
 </script>
 

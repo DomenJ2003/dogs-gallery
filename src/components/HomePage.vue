@@ -4,7 +4,9 @@ import MainGrid from "./MainGrid.vue";
 import SideBar from "./Sidebar.vue";
 
 const dogStore = useDogStore();
-dogStore.fetchDogs();
+if (!dogStore.getDogImgUrls.length) {
+  dogStore.fetchDogs();
+}
 </script>
 
 <template>
